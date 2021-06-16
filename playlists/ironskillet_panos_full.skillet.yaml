@@ -1,14 +1,13 @@
-name: ironskillet_panos_all_10_0
-label: PAN-OS NGFW IronSkillet 10.0
+name: ironskillet_panos_full_10_0
+label: IronSkillet PAN-OS 10.0
 description: |-
-  group of snippets for ironskillet 10.0 panos configuration
+  group of snippets for ironskillet 10.0
 type: panos
 labels:
   collection:
     - IronSkillet Playlists
 
 variables:
-
 
 snippets:
 

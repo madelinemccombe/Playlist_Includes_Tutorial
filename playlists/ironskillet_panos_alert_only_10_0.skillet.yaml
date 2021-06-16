@@ -1,0 +1,12 @@
+name: ironskillet_panos_alert_only_10_0
+label: IronSkillet Alert-Only 10.0
+description: |-
+  group of alert only policies for ironskillet 10.0
+type: panos
+labels:
+  collection:
+    - IronSkillet Playlists
+
+variables:
+
+snippets:
