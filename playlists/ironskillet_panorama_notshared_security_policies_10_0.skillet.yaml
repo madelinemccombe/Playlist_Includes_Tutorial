@@ -2,7 +2,7 @@ name: ironskillet_panorama_notshared_security_policies_10_0
 label: IronSkillet Panorama Not-Shared Security Policies 10.0
 description: |-
   group of security policies for panorama not-shared ironskillet 10.0
-type: panos
+type: panorama
 labels:
   collection:
     - IronSkillet Playlists
@@ -10,3 +10,109 @@ labels:
 variables:
 
 snippets:
+
+  # tag object
+  - name: panorama_tag_10_0
+    include: panorama_tag_10_0
+    include_snippets:
+      - name: ironskillet_tag_ironskillet_version
+        xpath: /config/devices/entry[@name='localhost.localdomain']/device-group/entry[@name='{{DEVICE_GROUP}}']/tag
+  # security profiles
+  - name: panorama_profiles_custom_url_category_10_0
+    include: panorama_profiles_custom_url_category_10_0
+    include_snippets:
+      - name: ironskillet_custom_url_category_block
+        xpath: /config/devices/entry[@name='localhost.localdomain']/device-group/entry[@name='{{DEVICE_GROUP}}']/profiles/custom-url-category
+      - name: ironskillet_custom_url_category_allow
+        xpath: /config/devices/entry[@name='localhost.localdomain']/device-group/entry[@name='{{DEVICE_GROUP}}']/profiles/custom-url-category
+      - name: ironskillet_custom_url_category_no_decrypt
+        xpath: /config/devices/entry[@name='localhost.localdomain']/device-group/entry[@name='{{DEVICE_GROUP}}']/profiles/custom-url-category
+  - name: panorama_profiles_decryption_10_0
+    include: panorama_profiles_decryption_10_0
+    include_snippets:
+      - name: ironskillet_decryption_profile
+        xpath: /config/devices/entry[@name='localhost.localdomain']/device-group/entry[@name='{{DEVICE_GROUP}}']/profiles/decryption
+  - name: panorama_profiles_virus_10_0
+    include: panorama_profiles_virus_10_0
+    include_snippets:
+      - name: ironskillet_antivirus_alert_all
+        xpath: /config/devices/entry[@name='localhost.localdomain']/device-group/entry[@name='{{DEVICE_GROUP}}']/profiles/virus
+      - name: ironskillet_antivirus_outbound
+        xpath: /config/devices/entry[@name='localhost.localdomain']/device-group/entry[@name='{{DEVICE_GROUP}}']/profiles/virus
+      - name: ironskillet_antivirus_inbound
+        xpath: /config/devices/entry[@name='localhost.localdomain']/device-group/entry[@name='{{DEVICE_GROUP}}']/profiles/virus
+      - name: ironskillet_antivirus_internal
+        xpath: /config/devices/entry[@name='localhost.localdomain']/device-group/entry[@name='{{DEVICE_GROUP}}']/profiles/virus
+      - name: ironskillet_antivirus_exception
+        xpath: /config/devices/entry[@name='localhost.localdomain']/device-group/entry[@name='{{DEVICE_GROUP}}']/profiles/virus
+  - name: panorama_profiles_spyware_10_0
+    include: panorama_profiles_spyware_10_0
+    include_variables: all
+    include_snippets:
+      - name: ironskillet_spyware_outbound
+        xpath: /config/devices/entry[@name='localhost.localdomain']/device-group/entry[@name='{{DEVICE_GROUP}}']/profiles/spyware
+      - name: ironskillet_spyware_inbound
+        xpath: /config/devices/entry[@name='localhost.localdomain']/device-group/entry[@name='{{DEVICE_GROUP}}']/profiles/spyware
+      - name: ironskillet_spyware_internal
+        xpath: /config/devices/entry[@name='localhost.localdomain']/device-group/entry[@name='{{DEVICE_GROUP}}']/profiles/spyware
+      - name: ironskillet_spyware_alert_all
+        xpath: /config/devices/entry[@name='localhost.localdomain']/device-group/entry[@name='{{DEVICE_GROUP}}']/profiles/spyware
+      - name: ironskillet_spyware_exception
+        xpath: /config/devices/entry[@name='localhost.localdomain']/device-group/entry[@name='{{DEVICE_GROUP}}']/profiles/spyware
+  - name: panorama_profiles_vulnerability_10_0
+    include: panorama_profiles_vulnerability_10_0
+    include_snippets:
+      - name: ironskillet_vulnerability_outbound
+        xpath: /config/devices/entry[@name='localhost.localdomain']/device-group/entry[@name='{{DEVICE_GROUP}}']/profiles/vulnerability
+      - name: ironskillet_vulnerability_inbound
+        xpath: /config/devices/entry[@name='localhost.localdomain']/device-group/entry[@name='{{DEVICE_GROUP}}']/profiles/vulnerability
+      - name: ironskillet_vulnerability_internal
+        xpath: /config/devices/entry[@name='localhost.localdomain']/device-group/entry[@name='{{DEVICE_GROUP}}']/profiles/vulnerability
+      - name: ironskillet_vulnerability_alert_all
+        xpath: /config/devices/entry[@name='localhost.localdomain']/device-group/entry[@name='{{DEVICE_GROUP}}']/profiles/vulnerability
+      - name: ironskillet_vulnerability_exception
+        xpath: /config/devices/entry[@name='localhost.localdomain']/device-group/entry[@name='{{DEVICE_GROUP}}']/profiles/vulnerability
+  - name: panorama_profiles_file_blocking_10_0
+    include: panorama_profiles_file_blocking_10_0
+    include_snippets:
+      - name: ironskillet_file_blocking_outbound
+        xpath: /config/devices/entry[@name='localhost.localdomain']/device-group/entry[@name='{{DEVICE_GROUP}}']/profiles/file-blocking
+      - name: ironskillet_file_blocking_inbound
+        xpath: /config/devices/entry[@name='localhost.localdomain']/device-group/entry[@name='{{DEVICE_GROUP}}']/profiles/file-blocking
+      - name: ironskillet_file_blocking_internal
+        xpath: /config/devices/entry[@name='localhost.localdomain']/device-group/entry[@name='{{DEVICE_GROUP}}']/profiles/file-blocking
+      - name: ironskillet_file_blocking_alert_all
+        xpath: /config/devices/entry[@name='localhost.localdomain']/device-group/entry[@name='{{DEVICE_GROUP}}']/profiles/file-blocking
+  - name: panorama_profiles_url_filtering_10_0
+    include: panorama_profiles_url_filtering_10_0
+    include_snippets:
+      - name: ironskillet_url_outbound
+        xpath: /config/devices/entry[@name='localhost.localdomain']/device-group/entry[@name='{{DEVICE_GROUP}}']/profiles/url-filtering
+      - name: ironskillet_url_alert_all
+        xpath: /config/devices/entry[@name='localhost.localdomain']/device-group/entry[@name='{{DEVICE_GROUP}}']/profiles/url-filtering
+      - name: ironskillet_url_exception
+        xpath: /config/devices/entry[@name='localhost.localdomain']/device-group/entry[@name='{{DEVICE_GROUP}}']/profiles/url-filtering
+  - name: panorama_profiles_wildfire_analysis_10_0
+    include: panorama_profiles_wildfire_analysis_10_0
+    include_snippets:
+      - name: ironskillet_wildfire_outbound
+        xpath: /config/devices/entry[@name='localhost.localdomain']/device-group/entry[@name='{{DEVICE_GROUP}}']/profiles/wildfire-analysis
+      - name: ironskillet_wildfire_inbound
+        xpath: /config/devices/entry[@name='localhost.localdomain']/device-group/entry[@name='{{DEVICE_GROUP}}']/profiles/wildfire-analysis
+      - name: ironskillet_wildfire_internal
+        xpath: /config/devices/entry[@name='localhost.localdomain']/device-group/entry[@name='{{DEVICE_GROUP}}']/profiles/wildfire-analysis
+      - name: ironskillet_wildfire_alert_all
+        xpath: /config/devices/entry[@name='localhost.localdomain']/device-group/entry[@name='{{DEVICE_GROUP}}']/profiles/wildfire-analysis
+  - name: panorama_profile_group_10_0
+    include: panorama_profile_group_10_0
+    include_snippets:
+      - name: ironskillet_profile_group_outbound
+        xpath: /config/devices/entry[@name='localhost.localdomain']/device-group/entry[@name='{{DEVICE_GROUP}}']/profile-group
+      - name: ironskillet_profile_group_inbound
+        xpath: /config/devices/entry[@name='localhost.localdomain']/device-group/entry[@name='{{DEVICE_GROUP}}']/profile-group
+      - name: ironskillet_profile_group_internal
+        xpath: /config/devices/entry[@name='localhost.localdomain']/device-group/entry[@name='{{DEVICE_GROUP}}']/profile-group
+      - name: ironskillet_profile_group_alert_all
+        xpath: /config/devices/entry[@name='localhost.localdomain']/device-group/entry[@name='{{DEVICE_GROUP}}']/profile-group
+      - name: ironskillet_profile_group_default
+        xpath: /config/devices/entry[@name='localhost.localdomain']/device-group/entry[@name='{{DEVICE_GROUP}}']/profile-group
