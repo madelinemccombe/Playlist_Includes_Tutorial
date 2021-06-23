@@ -9,6 +9,13 @@ labels:
 
 variables:
 
+  - name: DEVICE_GROUP
+    description: Device-group name for Panorama
+    default: sample_devicegroup
+    type_hint: text
+    help_text: creates a sample device-group with IronSkillet configuration elements
+
+
 snippets:
 
   # tag object
